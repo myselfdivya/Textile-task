@@ -1,6 +1,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -40,10 +41,24 @@
 		border-radius: 4px;
 		float: right;
 	}
+	h4{
+		margin-bottom: 20px;
+	}
 </style>
 </head>
 
 <body>
+
+	<div id="mySidenav" class="sidenav">
+		<a href="index.html">Home</a>
+		<a href="#">Menu 2</a>
+		<a href="#">Menu 3</a>
+		<a href="#">Menu 4</a>
+		<a href="#">Menu 5</a>
+	</div>
+
+
+	<h4 style="text-align: center;">Products - Due dates</h4>
 	<form action="next.html" method="post" name="form_name" id="form_id">
 		<table class="table" id="customFields">
 			<tr>
@@ -69,6 +84,7 @@
 
 	<script>
 		$(document).ready(function(){
+			document.getElementById("mySidenav").style.width = "250px";
 			$(".addCF").click(function(){
 				$("#customFields").append('<tr><td><select class="form-control" id="Product" name="Product[]" value=""><option>Copper coil</option><option>Thermostat</option><option>1 HP Motor pump</option><option>2 HP Motor pump</option></select> &nbsp; <input type="text" class="form-control" id="Quantity" name="Quantity[]" value="" placeholder="Quantity" /> &nbsp; <input type="date" class="form-control" id="productdate" name="productdate[]" value=""> &nbsp; <a href="javascript:void(0);" class="remCF">Remove</a></td></tr>');
 
@@ -79,6 +95,15 @@
 				$(this).parent().parent().remove();
 			});
 		});
+
+
+		// function openNav() {
+		// 	document.getElementById("mySidenav").style.width = "250px";
+		// }
+
+		// function closeNav() {
+		// 	document.getElementById("mySidenav").style.width = "0";
+		// }
 
 	</script>
 </body>

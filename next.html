@@ -1,6 +1,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -8,8 +9,35 @@
 	<script language="javascript" type="text/javascript" src="./asd.js"></script>
 </head>
 
+<style>
+body{
+	background-color: #f6f6f6;
+	padding: 40px 65px;
+}
+table{
+	background-color: #fff;
+	width: 60% !important;
+	margin: auto;
+	display: table;
+}
+h4{
+	margin-bottom: 20px;
+}
+
+</style>
+
 <body>
 
+	<div id="mySidenav" class="sidenav">
+		<a href="index.html">Home</a>
+		<a href="#">Menu 2</a>
+		<a href="#">Menu 3</a>
+		<a href="#">Menu 4</a>
+		<a href="#">Menu 5</a>
+	</div>
+
+
+	<h4 style="text-align: center;">Products - Possibility of Completion</h4>
 	<table class="table">
 		<thead>
 			<tr>
@@ -34,6 +62,7 @@
 		];
 
 		$(document).ready(function(){
+			document.getElementById("mySidenav").style.width = "250px";
 			var pdetails = sessionStorage.getItem("Productdetails");
 			var productsdisplay = JSON.parse(pdetails);
 			console.log(productsdisplay)
