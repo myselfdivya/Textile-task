@@ -1,0 +1,64 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+	<script language="javascript" type="text/javascript" src="./asd.js"></script>
+</head>
+
+<body>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Possible date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr id="NamesGridView">
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	<script>
+		var possibledates = [
+		{productname: 'Copper coil', productdate: '2022-02-18'},
+		{productname: 'Thermostat', productdate: '2022-02-19'},
+		{productname: '1 HP Motor pump', productdate: '2022-02-20'},
+		{productname: '2 HP Motor pump', productdate: '2022-02-22'}
+		];
+
+		$(document).ready(function(){
+			var pdetails = sessionStorage.getItem("Productdetails");
+			var productsdisplay = JSON.parse(pdetails);
+			console.log(productsdisplay)
+			console.log(possibledates)
+
+			var array = [];
+			for(var j = 0;j<productsdisplay.length;j++){
+				possibledates.some(function(el) {
+					console.log(el)
+					if(el.productname === productsdisplay[j].productname){
+						array.push({productname: productsdisplay[j].productname, productqty: productsdisplay[j].productqty, productdate: el.productdate})
+					}
+				});
+				console.log(array)
+			}
+			
+
+			for (var i = 0; i < array.length; i++) {
+				$("#NamesGridView").after("<tr><td>" + array[i].productname + "</td><td>" + array[i].productqty + "</td><td>" + array[i].productdate + "</td></tr>");
+			}
+
+
+		});
+
+
+	</script>
+</body>
+</html>

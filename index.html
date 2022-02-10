@@ -1,0 +1,85 @@
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<script language="javascript" type="text/javascript" src="./asd.js"></script>
+
+	<style>
+	body{
+		background-color: #f6f6f6;
+		padding: 40px 65px;
+	}
+	#form_id{
+		width: 50% !important;
+		margin: auto;
+		display: table;
+	}
+	table td{
+		display: table;
+		width: 100%;
+		border-top: none !important;
+	}
+	table tr{
+		margin-bottom: 10px;
+		display: block;
+	}
+	select, input{
+		width: 28% !important;
+		vertical-align: middle;
+		display: table-cell !important;
+	}
+	#btn_id{
+		background-color: #2424ac;
+		color: #fff;
+		text-align: center;
+		border: none;
+		padding: 8px 10px;
+		width: 113px !important;
+		border-radius: 4px;
+		float: right;
+	}
+</style>
+</head>
+
+<body>
+	<form action="next.html" method="post" name="form_name" id="form_id">
+		<table class="table" id="customFields">
+			<tr>
+				<td>
+					<!-- <input type="text" class="code" id="Product" name="Product[]" value="" placeholder="Product" /> &nbsp; -->
+					<select class="form-control" id="Product" name="Product[]" value="">
+						<option>Copper coil</option>
+						<option>Thermostat</option>
+						<option>1 HP Motor pump</option>
+						<option>2 HP Motor pump</option>
+					</select> &nbsp;
+					<input type="text" class="form-control" id="Quantity" name="Quantity[]" value="" placeholder="Quantity" /> &nbsp;
+					<input type="date" class="form-control" id="productdate" name="productdate[]" value=""> &nbsp;
+					<a href="javascript:void(0);" class="addCF">Add</a>
+				</td>
+			</tr>
+		</table>
+
+		<input type="submit" name="submit_id" id="btn_id" value="Submit" onclick="submit_by_id()"/>
+	</form>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$(".addCF").click(function(){
+				$("#customFields").append('<tr><td><select class="form-control" id="Product" name="Product[]" value=""><option>Copper coil</option><option>Thermostat</option><option>1 HP Motor pump</option><option>2 HP Motor pump</option></select> &nbsp; <input type="text" class="form-control" id="Quantity" name="Quantity[]" value="" placeholder="Quantity" /> &nbsp; <input type="date" class="form-control" id="productdate" name="productdate[]" value=""> &nbsp; <a href="javascript:void(0);" class="remCF">Remove</a></td></tr>');
+
+
+				// $("#customFields").append('<tr valign="top"><th scope="row"><label for="Product">Products</label></th><td><input type="text" class="code" id="Product" name="Product[]" value="" placeholder="Product" /> &nbsp; <input type="text" class="code" id="Quantity" name="Quantity[]" value="" placeholder="Quantity" /> &nbsp; <input type="date" class="code" id="productdate" name="productdate[]" value=""><a href="javascript:void(0);" class="remCF">Remove</a></td></tr>');
+			});
+			$("#customFields").on('click','.remCF',function(){
+				$(this).parent().parent().remove();
+			});
+		});
+
+	</script>
+</body>
+</html>
